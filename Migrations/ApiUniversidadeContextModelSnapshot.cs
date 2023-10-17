@@ -46,7 +46,7 @@ namespace apiUniversidade.Migrations
 
                     b.HasIndex("CursoId");
 
-                    b.ToTable("Alunos");
+                    b.ToTable("Alunos", (string)null);
                 });
 
             modelBuilder.Entity("apiUniversidade.Model.Curso", b =>
@@ -68,7 +68,7 @@ namespace apiUniversidade.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cursos");
+                    b.ToTable("Cursos", (string)null);
                 });
 
             modelBuilder.Entity("apiUniversidade.Model.Disciplina", b =>
@@ -95,7 +95,7 @@ namespace apiUniversidade.Migrations
 
                     b.HasIndex("CursoId");
 
-                    b.ToTable("Disciplinas");
+                    b.ToTable("Disciplinas", (string)null);
                 });
 
             modelBuilder.Entity("apiUniversidade.Model.Aluno", b =>

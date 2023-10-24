@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using apiUniversidade.Context;
 using apiUniversidade.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace apiUniversidade.Controllers
 {
@@ -48,6 +49,17 @@ namespace apiUniversidade.Controllers
                 return NotFound("Curso não encontrado.");
 
             return curso;
+        }
+
+        [HttpPut("{id:int}")]
+        public ActionResult Put(int id, Curso curso){
+            if(id != curso.Id)
+                return BadRequest();
+            
+            _context.Entry(curso).State = EntityState.Modified;
+            _context.SaveChanges();
+
+            return Ok(curso);
         }
     }
 }

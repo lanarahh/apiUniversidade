@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using apiUniversidade.Context;
 using apiUniversidade.Model;
@@ -37,6 +38,16 @@ namespace apiUniversidade.Controllers
             return new CreatedAtRouteResult("GetCurso",
                 new{id = curso.Id},
                 curso);
+        }
+
+        [HttpGet("{id:int}", Name="GetCurso")]
+        public ActionResult<Curso> Get(int id)
+        {
+            var curso = _context.Cursos.FirstOrDefault(p => p.Id == id);
+            if(curso is null)
+                return NotFound("Curso não encontrado.");
+
+            return curso;
         }
     }
 }

@@ -34,13 +34,6 @@ namespace apiUniversidade.Controllers
 
             return cursos;
         }
-        
-        [HttpGet(Name = "GetExemplo")]
-        [Route("exemplo")]
-        public String GetExemplo()
-        {
-            return "Api v2";
-        }
 
         [HttpPost]
         public ActionResult Post(Curso curso){

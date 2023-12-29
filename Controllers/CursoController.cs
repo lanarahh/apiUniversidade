@@ -17,12 +17,6 @@ namespace apiUniversidade.Controllers
     [Route("api/{v:apiversion}/curso")]
     public class CursoController : ControllerBase
     {
-        [HttpGet(Name = "GetExemplo")]
-        [Route("exemplo")]
-        public String GetExemplo()
-        {
-            return "Api v1";
-        }
         private readonly ILogger<CursoController> _logger;
         private readonly ApiUniversidadeContext _context;
         public CursoController(ILogger<CursoController> logger, ApiUniversidadeContext context)
